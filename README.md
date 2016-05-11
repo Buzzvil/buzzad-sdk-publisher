@@ -131,7 +131,7 @@ public class MainActivity extends Activity {
     | title | String | 참여한 광고명  |
     | user_id  | String | 매체사 유저 아이디로 SDK의 BuzzAd.showOfferWall 호출시 전달했던  `userId`|
     | point | Integer | 유저에게 지급해야 할 포인트 |
-    | transaction_id | String | 포인트 중복 적립을 막기 위한 **id**.<br>같은 **transaction_id**로 요청이 온 경우에는 반드시 포인트 중복 적립이 안되도록 처리해주어야 한다.<br><span style="color:red">**최대 64자까지 전달 될 수 있으므로, 연동 시 확인 필수!**</span>|
+    | transaction_id | String | 포인트 중복 적립을 막기 위한 **id**.<br>같은 **transaction_id**로 요청이 온 경우에는 반드시 포인트 중복 적립이 안되도록 처리해주어야 한다.<br><span style="color:red">**최대 64자까지 전달 될 수 있으므로, 연동 시 확인 필수이 필요함**</span>|
     | event_at | Long | 포인트 지급 시점. **timestamp**값이다.<br>대부분 API 호출시점과 동일하지만 API 호출이 재시도인 경우 다를 수 있다.|
     | extra | String | 매체사별 자체 정의한 캠페인 데이터의 json serilaize된 스트링.<br>라이브중에 캠페인 extra 정보가 바뀐 경우, 실제 포인트 적립 api에서 바뀐 정보가 적용되는데에 최대 10분이 걸릴 수 있다.<br>eg) `{"sub_type": "A", "source":"external"}`|
     | is_media | Integer |0: 버즈빌측 캠페인<br>1: 매체사측 캠페인|
