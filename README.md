@@ -134,8 +134,8 @@ public class MainActivity extends Activity {
     | transaction_id | String | 포인트 중복 적립을 막기 위한 **id**.<br>같은 **transaction_id**로 요청이 온 경우에는 반드시 포인트 중복 적립이 안되도록 처리해주어야 한다.<br><span style="color:red">**최대 64자까지 지원되므로, 연동 시 확인 필수!**</span>|
     | event_at | Long | 포인트 지급 시점. **timestamp**값이다.<br>대부분 API 호출시점과 동일하지만 API 호출이 재시도인 경우 다를 수 있다.|
     | extra | String | 매체사별 자체 정의한 캠페인 데이터의 json serilaize된 스트링.<br>라이브중에 캠페인 extra 정보가 바뀐 경우, 실제 포인트 적립 api에서 바뀐 정보가 적용되는데에 최대 10분이 걸릴 수 있다.<br>eg) `{"sub_type": "A", "source":"external"}`|
-    | is_media | Integer | 0: 버즈빌측 캠페인, 1: 매체사측 캠페인|
-    | revenue_type | String | 광고 타입.<br>추후 새로운 타입이 추가될 수 있으므로 연동시 이를 고려해야 한다.<br><ul><li><b>cpc</b>: 클릭형</li><li><b>cpm</b>: 노출형</li><li><b>cpi</b>: 앱 설치형</li><li><b>cpe</b>: 앱 실행형 또는 앱 실행후 액션형</li><li><b>cpa</b>: 액션형</li><li><b>cpl</b>: 페이스북 좋아요</li><li><b>cpy</b>: 유튜브 시청</li><li><b>cpinsta</b>: 인스타그램 팔로우</li></ul>|
+    | is_media | Integer |0: 버즈빌측 캠페인<br>1: 매체사측 캠페인|
+    | revenue_type | String | 광고 타입.<br>추후 새로운 타입이 추가될 수 있으므로 연동시 이를 고려해야 한다.<br><ul><li><b>cpc</b>: 클릭형</li><li><b>cpm</b>: 노출형</li><li><b>cast</b>: 컨텐츠</li><li><b>cpi</b>: 앱 설치형</li><li><b>cpe</b>: 앱 실행형 또는 앱 실행후 액션형</li><li><b>cpa</b>: 액션형</li><li><b>cpl</b>: 페이스북 좋아요</li><li><b>cpy</b>: 유튜브 시청</li><li><b>cpinsta</b>: 인스타그램 팔로우</li></ul>|
 
 - 포인트 적립 요청에 매체사 서버는 정상 처리된 경우는 `HTTP STATUS 200` 응답을 보내야 하며, 그 외의 경우 특정 시간동안 포인트 적립 요청은 재시도가 된다.
     > **주의** : 만약 중복된 `transaction_id`가 포스트백을 통해 전달되면, `HTTP STATUS 200` 응답을 보내야 한다. 그렇지 않으면, 해당 요청에 대해 재시도가 이루어진다.
