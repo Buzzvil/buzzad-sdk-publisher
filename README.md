@@ -1,1 +1,1 @@
-Moved to https://github.com/Buzzvil/abuzz-sdk-samples => ./buzzad-offerwall
+Moved to https://github.com/Buzzvil/buzz-sdk-samples => ./buzzad-offerwall
